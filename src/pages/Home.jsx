@@ -15,7 +15,7 @@ const Home = () => {
         </div>
         <div className="image-card">
           <img src={image2} alt="Fuel Station 2" className="image-card-img"/>
-          <p className="image-card-text">Goal 2: Optimal route planning</p>
+          <p className="image-card-text">Goal 2: Fuel cost and Availability</p>
         </div>
         <div className="image-card">
           <img src={image3} alt="Fuel Station 3" className="image-card-img"/>
