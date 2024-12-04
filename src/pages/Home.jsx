@@ -1,26 +1,25 @@
-import React from "react";
-import "./Home.css";
+import React from 'react';
+import './Home.css'; // Ensure specific styling for Home page
+import image1 from '../assets/images/adv_filtering.jpg';
+import image2 from '../assets/images/fuel_price.jpg';
+import image3 from '../assets/images/gas_station.jpg';
 
 const Home = () => {
   return (
     <div className="home">
-      <h1>Welcome to Pitstop-Go</h1>
-      <p>Your ultimate solution for discovering optimal fueling stations based on your vehicle's needs!</p>
-      <div className="info-cards">
-        <div className="card">
-          <img src="https://via.placeholder.com/300" alt="Goal 1" />
-          <h3>Goal 1</h3>
-          <p>Find the best fuel options tailored to your vehicle type.</p>
+      <h1 className="home-title">Welcome to Pitstop-Go</h1>
+      <div className="image-cards">
+        <div className="image-card">
+          <img src={image1} alt="Fuel Station 1" className="image-card-img"/>
+          <p className="image-card-text">Goal 1: Easy fuel discovery</p>
         </div>
-        <div className="card">
-          <img src="https://via.placeholder.com/300" alt="Goal 2" />
-          <h3>Goal 2</h3>
-          <p>Locate the nearest fueling stations with advanced filtering.</p>
+        <div className="image-card">
+          <img src={image2} alt="Fuel Station 2" className="image-card-img"/>
+          <p className="image-card-text">Goal 2: Optimal route planning</p>
         </div>
-        <div className="card">
-          <img src="https://via.placeholder.com/300" alt="Goal 3" />
-          <h3>Goal 3</h3>
-          <p>Get real-time updates on fuel prices and availability.</p>
+        <div className="image-card">
+          <img src={image3} alt="Fuel Station 3" className="image-card-img"/>
+          <p className="image-card-text">Goal 3: User-friendly experience</p>
         </div>
       </div>
     </div>
