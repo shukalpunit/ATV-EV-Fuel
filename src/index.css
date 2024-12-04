@@ -1,5 +1,15 @@
-/* Placeholder CSS */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-}
+    font-family: 'Arial', sans-serif;
+    background: #f9f9f9;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  

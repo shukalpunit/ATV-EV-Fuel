@@ -1,13 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
 
 const Header = () => {
   return (
-    <header>
+    <header className="header">
+      <Link to="/" className="logo">Pitstop-Go</Link>
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/station/1">Station 1</Link>
-        <Link to="/station/2">Station 2</Link>
+        <Link to="/discover">Discover</Link>
+        {/* Add more links here as needed */}
       </nav>
     </header>
   );
