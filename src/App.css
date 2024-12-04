@@ -7,11 +7,12 @@ html, body {
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Use the full viewport height */
+  min-height: 100vh;
 }
 
 .main-content {
-  flex-grow: 1; /* Ensure the content area grows to take available space */
+  flex-grow: 1;
+  background-color: rgb(163, 191, 232); /* Ensure the content area grows to take available space */
 }
 
 footer {
