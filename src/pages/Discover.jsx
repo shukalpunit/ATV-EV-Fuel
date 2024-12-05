@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Discover.css";
 
 const Discover = () => {
@@ -29,11 +29,16 @@ const Discover = () => {
         return response.json();
       })
       .then((data) => {
-        setStations(data);
-        setError("");
+        if (data.length === 0) {
+          setError("No stations found. Try refining your search.");
+        } else {
+          setStations(data);
+          setError("");
+        }
       })
       .catch((error) => {
         console.error("Error fetching stations:", error);
+        setStations([]);
         setError("Could not fetch stations. Try again later.");
       });
   };
@@ -76,7 +81,7 @@ const Discover = () => {
 
       <div className="results">
         {error && <p className="error">{error}</p>}
-        {stations.length > 0 && (
+        {stations.length > 0 ? (
           <ul>
             {stations.map((station, index) => (
               <li key={index}>
@@ -88,6 +93,8 @@ const Discover = () => {
               </li>
             ))}
           </ul>
+        ) : (
+          !error && <p>No stations to display. Submit the form to search.</p>
         )}
       </div>
     </div>
