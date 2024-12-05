@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.css'; // Ensure specific styling for Home page
+import './Home.css';
 import image1 from '../assets/images/adv_filtering.jpg';
 import image2 from '../assets/images/fuel_price.jpg';
 import image3 from '../assets/images/gas_station.jpg';
