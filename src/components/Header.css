@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #0d2353;
+  background-color: #2d7e27;
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -29,13 +29,13 @@
 }
 
 .header-link:hover {
-  color: #ff9800;
+  color: #40ff00;
 }
 
 .header-button {
   padding: 10px 20px;
   font-size: 1rem;
-  background-color: #ff9800;
+  background-color: #2d7e27;
   color: white;
   border: none;
   border-radius: 5px;
@@ -46,7 +46,7 @@
 }
 
 .header-button:hover {
-  background-color: #e68a00;
+  background-color: #044106;
   transform: translateY(-3px); /* Adds a slight lift effect */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Shadow on hover */
 }

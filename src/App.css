@@ -12,7 +12,7 @@ html, body {
 
 .main-content {
   flex-grow: 1;
-  background-color: rgb(163, 191, 232); /* Ensure the content area grows to take available space */
+  background-color: rgb(163, 232, 164); /* Ensure the content area grows to take available space */
 }
 
 footer {
