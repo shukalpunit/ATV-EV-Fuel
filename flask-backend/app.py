@@ -1,25 +1,39 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from SPARQLWrapper import SPARQLWrapper, JSON
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def home():
-    return "Welcome to Pitstop-Go Backend"
+    return "Welcome to Pitstop-Go API!"
 
-@app.route('/stations', methods=['GET'])
+@app.route("/stations", methods=["GET"])
 def get_stations():
-    sparql = SPARQLWrapper("https://dbpedia.org/sparql")
-    sparql.setQuery("""
-        SELECT ?station ?fuelType WHERE {
-            ?station rdf:type dbo:FuelStation .
-            ?station dbo:fuelType ?fuelType .
-        }
-        LIMIT 10
-    """)
+    sparql = SPARQLWrapper("http://dbpedia.org/sparql")  # Use DBpedia endpoint
+    query = """
+    SELECT DISTINCT ?station ?label
+    WHERE {
+        ?station a <http://dbpedia.org/ontology/ServiceStation> ;
+                 rdfs:label ?label .
+        FILTER (lang(?label) = 'en')
+    }
+    LIMIT 10
+    """
+    sparql.setQuery(query)
     sparql.setReturnFormat(JSON)
-    results = sparql.query().convert()
-    return jsonify(results)
-    
-if __name__ == '__main__':
+
+    try:
+        results = sparql.query().convert()
+        stations = []
+        for result in results["results"]["bindings"]:
+            station = {
+                "uri": result["station"]["value"],
+                "label": result["label"]["value"]
+            }
+            stations.append(station)
+        return jsonify(stations)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+if __name__ == "__main__":
     app.run(debug=True)
