@@ -32,5 +32,5 @@ Sustainable Transportation Insights .
 - Siddesh Shetty
 - Punit Shukal
 
-## Acknowledgments
+## Acknowledgment
 - Dr. Srividya Bansal
