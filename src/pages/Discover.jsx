@@ -8,6 +8,9 @@ const Discover = () => {
     vehicleType: "",
   });
 
+  const [stations, setStations] = useState([]);
+  const [error, setError] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -16,7 +19,28 @@ const Discover = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Submitted Form Data:", formData);
-    // Process form submission logic here
+
+    // Fetch from the Flask API (adjust the endpoint URL as needed)
+    fetch("http://127.0.0.1:5000/stations")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch stations");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.length === 0) {
+          setError("No stations found. Try refining your search.");
+        } else {
+          setStations(data);
+          setError("");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching stations:", error);
+        setStations([]);
+        setError("Could not fetch stations. Try again later.");
+      });
   };
 
   return (
@@ -54,6 +78,25 @@ const Discover = () => {
         </label>
         <button type="submit">Search</button>
       </form>
+
+      <div className="results">
+        {error && <p className="error">{error}</p>}
+        {stations.length > 0 ? (
+          <ul>
+            {stations.map((station, index) => (
+              <li key={index}>
+                <strong>{station.label}</strong>
+                <br />
+                <a href={station.uri} target="_blank" rel="noopener noreferrer">
+                  {station.uri}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          !error && <p>No stations to display. Submit the form to search.</p>
+        )}
+      </div>
     </div>
   );
 };
