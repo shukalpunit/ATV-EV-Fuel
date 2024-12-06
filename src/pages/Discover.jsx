@@ -46,38 +46,50 @@ const Discover = () => {
   return (
     <div className="discover">
       <h1>Discover Fueling Stations</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Fuel Type:
-          <select name="fuelType" value={formData.fuelType} onChange={handleChange}>
-            <option value="">Select</option>
-            <option value="EV">EV</option>
-            <option value="LPG">LPG</option>
-            <option value="CNG">CNG</option>
-            <option value="ATV">ATV</option>
-          </select>
-        </label>
-        <label>
-          Zip Code:
-          <input
-            type="number"
-            name="zipCode"
-            value={formData.zipCode}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Vehicle Type/Class:
-          <input
-            type="text"
-            name="vehicleType"
-            placeholder="e.g., Sedan, Heavy"
-            value={formData.vehicleType}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">Search</button>
-      </form>
+      <div className="form-container">
+        <form onSubmit={handleSubmit} className="discover-form">
+          <label>
+            Fuel Type:
+            <select
+              name="fuelType"
+              value={formData.fuelType}
+              onChange={handleChange}
+            >
+              <option value="">Select</option>
+              <option value="Biodiesel">Biodiesel</option>
+              <option value="CNG">CNG</option>
+              <option value="Electric">Electric</option>
+              <option value="Hydrogen">Hydrogen</option>
+              <option value="LNG">LNG</option>
+              <option value="LPG">LPG</option>
+              <option value="Renewable Diesel">Renewable Diesel</option>
+            </select>
+          </label>
+          <label>
+            Zip Code:
+            <input
+              type="number"
+              name="zipCode"
+              value={formData.zipCode}
+              onChange={handleChange}
+              placeholder="Enter Zip Code"
+            />
+          </label>
+          <label>
+            Vehicle Type/Class:
+            <select
+              name="vehicleType"
+              value={formData.vehicleType}
+              onChange={handleChange}
+            >
+              <option value="">Select</option>
+              <option value="Heavy Duty">Heavy Duty</option>
+              <option value="Medium Duty">Medium Duty</option>
+            </select>
+          </label>
+          <button type="submit">Search</button>
+        </form>
+      </div>
 
       <div className="results">
         {error && <p className="error">{error}</p>}
