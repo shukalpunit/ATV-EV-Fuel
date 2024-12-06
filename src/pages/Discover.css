@@ -133,3 +133,43 @@ button:hover {
   font-weight: bold;
   margin-top: 20px;
 }
+
+/* Additional Warning Styling */
+.form-warning {
+  color: #d9534f;
+  margin-top: 15px;
+  font-weight: bold;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Input Field Adjustment */
+select,
+input {
+  width: 100%;
+  max-width: 300px; /* Uniform width for all fields */
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Button and Form Animations */
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 91, 187, 0.4);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

@@ -10,14 +10,27 @@ const Discover = () => {
 
   const [stations, setStations] = useState([]);
   const [error, setError] = useState("");
+  const [formWarning, setFormWarning] = useState(""); // Warning for empty form fields
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Ensure only numeric values up to 9 digits for zipCode
+    if (name === "zipCode" && value.length > 9) return;
+
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Check for empty fields
+    if (!formData.fuelType || !formData.zipCode || !formData.vehicleType) {
+      setFormWarning("Please fill out all fields before submitting.");
+      return;
+    }
+
+    setFormWarning(""); // Clear warning if all fields are valid
     console.log("Submitted Form Data:", formData);
 
     // Fetch from the Flask API (adjust the endpoint URL as needed)
@@ -88,6 +101,7 @@ const Discover = () => {
             </select>
           </label>
           <button type="submit">Search</button>
+          {formWarning && <p className="form-warning">{formWarning}</p>}
         </form>
       </div>
 
