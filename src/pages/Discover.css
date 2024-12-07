@@ -1,52 +1,113 @@
-.discover {
+/* General Discover Page Styling */
+.App {
   padding: 20px;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
+  font-family: "Arial", sans-serif;
+  text-align: center;
 }
 
-form {
-  margin-bottom: 30px;
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 2px #ccc;
+}
+
+/* Form Container with Background & Animation */
+.form-container {
+  background: linear-gradient(to bottom right, #f3f9ff, #e1efff);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.discover-form {
+  position: relative;
 }
 
 label {
-  display: block;
   margin-bottom: 10px;
-  font-weight: bold;
 }
 
+select,
+input,
 button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #007bff;
+  color: white;
 }
 
+/* Results Section */
 .results {
   margin-top: 20px;
 }
 
-.results ul {
-  list-style-type: none;
-  padding: 0;
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.results li {
-  margin-bottom: 10px;
-  font-size: 1rem;
+.station-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 280px;
+  text-align: left;
+  transition: transform 0.2s ease-in-out;
 }
 
-.results li strong {
-  font-weight: bold;
+.station-card:hover {
+  transform: translateY(-5px);
 }
 
-.error {
-  color: red;
-  font-weight: bold;
+.station-card h3 {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.station-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 4px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Access Code Tooltip */
+.access-code-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 10;
+  top: -5px;
+  left: 100%;
+  white-space: nowrap;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.access-code-container:hover .tooltip {
+  visibility: visible;
 }
