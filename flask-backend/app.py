@@ -25,7 +25,7 @@ shared_fields = [
     "hasLongitude",
 ]
 
-# Fuel type-specific optional fields
+# Fuel type-specific optional field
 fuel_type_fields = {
     "Biodiesel": ["hasBDBlends"],
     "Electric": [
