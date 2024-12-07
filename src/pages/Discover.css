@@ -1,7 +1,7 @@
 /* General Discover Page Styling */
-.discover {
+.App {
   padding: 20px;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   font-family: "Arial", sans-serif;
   text-align: center;
@@ -20,21 +20,15 @@ h1 {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
+  margin-bottom: 20px;
 }
 
-/* Form Elements */
 .discover-form {
   position: relative;
-  z-index: 1;
 }
 
 label {
-  display: block;
   margin-bottom: 10px;
-  font-weight: bold;
-  color: #555;
 }
 
 select,
@@ -46,25 +40,16 @@ button {
   border: 1px solid #ccc;
   border-radius: 5px;
   transition: all 0.3s ease;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
   background-color: #007bff;
-  color: #fff;
-  transform: translateY(-3px);
-}
-
-/* Error Section */
-.error {
-  color: red;
-  font-weight: bold;
-  margin-top: 20px;
+  color: white;
 }
 
 /* Results Section */
 .results {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .cards-container {
@@ -80,7 +65,7 @@ button:hover {
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
-  width: 260px;
+  width: 280px;
   text-align: left;
   transition: transform 0.2s ease-in-out;
 }
@@ -92,18 +77,37 @@ button:hover {
 .station-card h3 {
   font-size: 1.1rem;
   color: #333;
-  margin-bottom: 5px;
 }
 
 .station-card p {
   font-size: 0.9rem;
   color: #555;
-  margin: 3px 0;
+  margin: 4px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* Responsive Styling for Mobile Devices */
-@media (max-width: 768px) {
-  .station-card {
-    width: 100%;
-  }
+/* Access Code Tooltip */
+.access-code-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 10;
+  top: -5px;
+  left: 100%;
+  white-space: nowrap;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.access-code-container:hover .tooltip {
+  visibility: visible;
 }

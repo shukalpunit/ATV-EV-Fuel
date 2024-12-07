@@ -34,48 +34,48 @@ function App() {
   };
 
   return (
-    <div className="discover">
+    <div className="App">
       <h1>Alternative Fuel Stations Finder</h1>
 
       {/* Form Section */}
-      <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
-        <label>
-          Fuel Type:
-          <select
-            value={fuelType}
-            onChange={(e) => setFuelType(e.target.value)}
-            required
-          >
-            <option value="">Select Fuel Type</option>
-            <option value="Biodiesel">Biodiesel</option>
-            <option value="Electric">Electric</option>
-            <option value="CNG">CNG</option>
-            <option value="E85">E85</option>
-            <option value="LPG">LPG</option>
-            <option value="LNG">LNG</option>
-            <option value="RenewableDiesel">RenewableDiesel</option>
-            <option value="Hydrogen">Hydrogen</option>
-          </select>
-        </label>
+      <div className="form-container">
+        <form onSubmit={handleSubmit} className="discover-form">
+          <label>
+            Fuel Type:
+            <select
+              value={fuelType}
+              onChange={(e) => setFuelType(e.target.value)}
+              required
+            >
+              <option value="">Select Fuel Type</option>
+              <option value="Biodiesel">Biodiesel</option>
+              <option value="Electric">Electric</option>
+              <option value="CNG">CNG</option>
+              <option value="E85">E85</option>
+              <option value="LPG">LPG</option>
+              <option value="LNG">LNG</option>
+              <option value="RenewableDiesel">RenewableDiesel</option>
+              <option value="Hydrogen">Hydrogen</option>
+            </select>
+          </label>
 
-        <label style={{ marginLeft: '10px' }}>
-          Zip Code:
-          <input
-            type="text"
-            value={zipCode}
-            onChange={(e) => setZipCode(e.target.value)}
-            required
-          />
-        </label>
+          <label>
+            Zip Code:
+            <input
+              type="text"
+              value={zipCode}
+              onChange={(e) => setZipCode(e.target.value)}
+              required
+            />
+          </label>
 
-        <button type="submit" style={{ marginLeft: '10px' }}>
-          Search
-        </button>
-      </form>
+          <button type="submit">Search</button>
+        </form>
+      </div>
 
       {/* Loading/Status Message */}
       {loading && <p>Loading...</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="error">{error}</p>}
 
       {/* Display Results */}
       <div className="results">
@@ -94,9 +94,17 @@ function App() {
                 <p>
                   <strong>Phone:</strong> {station.hasPhone?.value || 'N/A'}
                 </p>
-                <p>
-                  <strong>Access Code:</strong> {station.hasAccessCode?.value || 'N/A'}
-                </p>
+                <div className="access-code-container">
+                  <p>
+                    <strong>Access Code:</strong>{' '}
+                    <span className="tooltip">
+                      {station.hasAccessCode?.value || 'N/A'}
+                    </span>
+                    {station.hasAccessCode?.value?.length > 30
+                      ? `${station.hasAccessCode?.value.slice(0, 30)}...`
+                      : station.hasAccessCode?.value}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
